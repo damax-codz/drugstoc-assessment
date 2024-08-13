@@ -1,0 +1,97 @@
+@mixin font($weight, $size, $line, $color) {
+  font-size: $size;
+  line-height: $line;
+  color: $color;
+  font-weight: $weight;
+}
+
+.wrapper {
+  background-color: #ffffff;
+  padding: 40px;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .header_text {
+      @include font(700, 48px, 1.2, #333333);
+      letter-spacing: -0.1rem;
+    }
+    .header_sub-text {
+      @include font(400, 14px, 1.2, #333333d9);
+    }
+    .search_input {
+      background-color: #eff1f6;
+      border: none;
+      border-radius: 24px;
+      padding: 14px 34px;
+      width: 400px;
+      @include font(400, 17px, 1.2, #333333);
+      transition: 200ms;
+      &::placeholder {
+        @include font(400, 14px, 1.2, #333333a5);
+      }
+      &:focus {
+        outline: none;
+        outline: 2px solid #333333d0;
+        padding: 14px 34px;
+      }
+    }
+  }
+  .page_body {
+    .no_record {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 30vh;
+      .no_record_body {
+        max-width: 350px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 14px;
+        .no_record_icon {
+          border-radius: 16px;
+          background: linear-gradient(135deg, #d8dcdf 0%, #f6f7f9 100%);
+          padding: 10px 14px;
+          width: fit-content;
+        }
+        .no_record_title {
+          @include font(700, 22px, 1.2, #333333);
+          font-family: "Degular Display";
+        }
+        .no_record_description {
+          @include font(400, 16px, 1.2, #333333d9);
+          font-family: "Degular";
+        }
+      }
+    }
+    .book_card {
+      .book_card_title {
+        @include font(600, 20px, 1.2, #333333d9);
+        font-family: "Degular";
+      }
+      .book_card_author {
+        @include font(400, 14px, 1.2, #33333399);
+        font-family: "Degular";
+      }
+      .book_card_published_date {
+        @include font(600, 12px, 1.2, #333333d9);
+        font-family: "Degular";
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 14px;
+    .header {
+      flex-direction: column;
+      align-items: flex-start !important;
+      gap: 24px;
+      .search_input {
+        width: 100%;
+      }
+    }
+  }
+}
